@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="rplsd" ng-controller="controller">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="bower_components/js-schema/js-schema.debug.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/sprintf/dist/sprintf.min.js"></script>
+    <script src="js/schema.js"></script>
+    <script>
+    </script>
+    <script src="js/main.js"></script>
+    <!-- No need for Babel! -->
+</head>
+<body>
+    <button ng-click="render(config)" class="btn btn-primary">Render</button>
+    <div ng-bind-html="HTML"></div>
+</body>
+</html>
