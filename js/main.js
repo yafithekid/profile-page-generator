@@ -9,22 +9,45 @@ var htmlMap = function(map){
 };
 
 var htmlExperience = function(experience){
-    var d_master = document.createElement("div");
-    var d_title = document.createElement("h2");
-    $(d_title).append("Pengalaman");
-    $(d_master).append(d_title);
-    $(d_master).addClass("woi");
+    var section = document.createElement("section");
+    $(section).attr("id","about");
+
+    var container = document.createElement("div");
+    $(section).append(container);
+    $(container).addClass("container");
+
+    var title_row = document.createElement("div");
+    $(container).append(title_row);
+    $(title_row).addClass("row");
+
+    var title_content = document.createElement("div");
+    $(title_row).append(title_content);
+    $(title_content).addClass("col-lg-12").addClass("text-center");
+
+    var title_content_h2 = document.createElement("h2");
+    $(title_content_h2).addClass("section-heading");
+    $(title_content).append(title_content_h2);
+    $(title_content_h2).text("Pengalaman");
+
+    var body_row = document.createElement("div");
+    $(container).append(body_row);
+    $(title_row).addClass("row");
+
+    var body_content = document.createElement("div");
+    $(body_row).append(body_content);
+    $(body_content).addClass("col-md-12");
 
     var timeline = document.createElement("ul");
     $(timeline).addClass("timeline");
-    $(d_master).append(timeline);
-    console.log(d_master);
-    console.log(experience);
+    $(body_content).append(timeline);
     for(var i = 0; i < experience.events.length; i++){
         var event = experience.events[i];
 
         var li = document.createElement("li");
         $(timeline).append(li);
+        if (i % 2 == 1){
+            $(li).addClass("timeline-inverted");
+        }
 
         // start of timeline image dom
         var timg = document.createElement("div");
@@ -47,33 +70,37 @@ var htmlExperience = function(experience){
         $(tpanel).addClass("timeline-heading");
         var theading_header = document.createElement("h5");
         $(theading).append(theading_header);
-        //TODO change to data
-        $(theading_header).text("1-1-1999 - 2-2-1999");
-
+        console.log(event);
+        if (event.end === undefined){
+            $(theading_header).text(dateToOutputString(event.start));
+        } else {
+            $(theading_header).text(dateToOutputString(event.start)+ " - " + dateToOutputString(event.end));
+        }
         $(theading).append(document.createElement("br"));
 
         var subheading = document.createElement("h4");
         $(subheading).addClass("subheading");
         $(theading).append(subheading);
 
-        //TODO
-        $(subheading).text("judul");
+        $(subheading).text(event.title);
 
         var subheading_subtitle = document.createElement("h5");
         $(theading).append(subheading_subtitle);
-        //TODO change subtitle
-        $(subheading_subtitle).text("<i>"+"subjudul"+"</i>");
+        var subheading_subtitle_content = document.createElement("i");
+        $(subheading_subtitle).append(subheading_subtitle_content);
+        $(subheading_subtitle_content).text(event.subtitle);
 
         var tbody = document.createElement("div");
         $(tpanel).append(tbody);
         $(tbody).addClass("timeline-body");
         var tbodyp = document.createElement("p");
         $(tbody).append(tbodyp);
-        //TODO change desc
-        $(tbodyp).text("deskripsi");
+        $(tbodyp).text(event.description);
         //end of panel
     }
-    return $(d_master).html();
+    var temp = document.createElement("div");
+    $(temp).append(section);
+    return $(temp).html();
 
 };
 
