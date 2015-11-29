@@ -1,6 +1,15 @@
 var config = {
     components: [
         {
+            type : 'title',
+            content : {
+                background_image : "https://quotefancy.com/media/wallpaper/1600x900/1859-Bruce-Lee-Quote-Be-happy-but-never-satisfied.jpg",
+                tag_line : "Muzavan",
+                sub_tag_line : "Muhammad Reza Irvanda",
+                button : "About Me"
+            }
+        },
+        {
             type: 'experience',
             content: {
                 title: "Pengalamanku",

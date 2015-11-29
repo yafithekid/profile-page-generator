@@ -1,5 +1,5 @@
 var Phone = /[0-9]{9,12}/;
-
+var Link = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/;
 var Date = schema({
     day: Number.min(1).max(31),
     month: Number.min(1).max(12),
@@ -31,10 +31,17 @@ var Experience = schema({
     events: Array.of(Event)
 });
 
+var Title = schema({
+    background_image : Link,
+    tag_line : String,
+    sub_tag_line : String,
+    button : String
+});
+
 var Component = schema({
     '?id': String,
-    type: ['map','contact','experience'],
-    content : [Map,Contact,Experience]
+    type: ['map','contact','experience','title'],
+    content : [Map,Contact,Experience,Title]
 });
 
 var Main = schema({
