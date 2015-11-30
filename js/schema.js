@@ -38,16 +38,27 @@ var Title = schema({
     button : String
 });
 
+var Project = schema({
+    imageurl: String,
+    title: String,
+    subtitle: String
+});
+
+var Portfolio = schema({
+    title: String,
+    description: String,
+    projects: Array.of(Project)
+});
+
 var Component = schema({
     '?id': String,
-    type: ['map','contact','experience','title'],
-    content : [Map,Contact,Experience,Title]
+    type: ['map','contact','experience','title','portfolio'],
+    content : [Map,Contact,Experience,Title,Portfolio]
 });
 
 var Main = schema({
     components: Array.of(Component)
 });
-
 
 var dateToOutputString = function(date){
     var monthName;

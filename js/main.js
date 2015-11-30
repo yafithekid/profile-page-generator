@@ -141,6 +141,136 @@ var htmlExperience = function(experience){
 
 };
 
+var htmlPortfolio = function(portfolios){
+    var section = document.createElement("section");
+    $(section).attr("id","portfolio");
+    $(section).addClass("bg-light-gray");
+
+    var container = document.createElement("div");
+    $(section).append(container);
+    $(container).addClass("container");
+
+    var title_row = document.createElement("div");
+    $(container).append(title_row);
+    //$(title_row).addClass("row");
+	
+	$(title_row)
+		.addClass("row")
+		.append(
+			$(document.createElement("div"))
+				.addClass("col-lg-12").addClass("text-center")
+				.append(
+					$(document.createElement("h2"))
+						.addClass("section-heading")
+						.text(portfolios.title)
+				).append(
+					$(document.createElement("h3"))
+						.addClass("section-subheading").addClass("text-muted")
+						.text(portfolios.description)
+				)
+		);//*/
+
+	/*var title_content = document.createElement("div");
+    $(title_row).append(title_content);
+    $(title_content).addClass("col-lg-12").addClass("text-center");
+
+    var title_content_h2 = document.createElement("h2");
+    $(title_content_h2).addClass("section-heading");
+    $(title_content).append(title_content_h2);
+    $(title_content_h2).text(portfolios.title);
+
+    var title_content_h3 = document.createElement("h3");
+    $(title_content_h3).addClass("section-subheading").addClass("text-muted");
+    $(title_content).append(title_content_h3);
+    $(title_content_h3).text(portfolios.description);//*/
+
+    var body_row = document.createElement("div");
+    $(container).append(body_row);
+    $(body_row).addClass("row");
+    for(var i = 0; i < portfolios.projects.length; i++){
+        var project = portfolios.projects[i];
+
+		var pf_body = document.createElement("div");
+		$(body_row).append(pf_body);
+		//$(pf_body).addClass("col-md-4").addClass("col-sm-6").addClass("portfolio-item");
+
+		$(pf_body)
+			.addClass("col-md-4").addClass("col-sm-6").addClass("portfolio-item")
+			.append(
+				$(document.createElement("a"))
+					.addClass("portfolio-link")
+					.attr("href","#portfolioModal"+(i+1))
+					.attr("data-toggle","portfolio")
+					.append(
+						$(document.createElement("div"))
+							.addClass("portfolio-hover")
+							.append(
+								$(document.createElement("div"))
+									.addClass("portfolio-hover-content")
+									.append(
+										$(document.createElement("i"))
+											.addClass("fa").addClass("fa-plus").addClass("fa-3x")
+									)
+							)
+					).append(
+						$(document.createElement("img"))
+							.addClass("img-responsive")
+							.attr("src",project.imageurl)
+							.attr("style","text-align:center")
+					)
+			).append(
+				$(document.createElement("div"))
+					.addClass("portfolio-caption")
+					.append(
+						$(document.createElement("h4"))
+							.text(project.title)
+					).append(
+						$(document.createElement("p"))
+							.addClass("text-muted")
+							.text(project.subtitle)
+					)
+			);//*/
+
+		var pf_a = document.createElement("a");
+		$(pf_body).append(pf_a);
+		$(pf_a).addClass("portfolio-link");
+		$(pf_a).attr("href","#portfolioModal"+(i+1));
+		$(pf_a).attr("data-toggle","portfolio");
+
+		var pf_hover = document.createElement("div");
+		$(pf_a).append(pf_hover);
+		$(pf_hover).addClass("portfolio-hover");
+		var pf_hover_c = document.createElement("div");
+		$(pf_hover).append(pf_hover_c);
+		$(pf_hover_c).addClass("portfolio-hover-content");
+		var pf_hover_i = document.createElement("i");
+		$(pf_hover_c).append(pf_hover_i);
+		$(pf_hover_i).addClass("fa").addClass("fa-plus").addClass("fa-3x");
+
+		var pf_img = document.createElement("img");
+		$(pf_a).append(pf_img);
+		$(pf_img).addClass("img-responsive");
+		$(pf_img).attr("src",project.imageurl);
+
+		var pf_descript = document.createElement("div");
+		$(pf_a).append(pf_descript);
+		$(pf_descript).addClass("portfolio-caption");
+
+		var pf_descript_title = document.createElement("h4");
+		$(pf_descript).append(pf_descript_title);
+		$(pf_descript_title).text(project.title);
+
+		var pf_descript_subtitle = document.createElement("p");
+		$(pf_descript).append(pf_descript_subtitle);
+		$(pf_descript).addClass("text-muted");
+		$(pf_descript_title).text(project.subtitle);//*/
+    }
+    var temp = document.createElement("div");
+    $(temp).append(section);
+    return $(temp).html();
+
+};
+
 app.controller('controller',['$scope','$sce',function($scope,$sce){
     $scope.HTML = "";
     $scope.render = function(){
@@ -158,6 +288,8 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                         html += htmlExperience(component.content);
                     } else if(component.type == 'title'){
                         html +=htmlTitle(component);
+                    } else if (component.type == 'portfolio'){
+                        html += htmlPortfolio(component.content);
                     }
                 } else {
                     console.log(Component.errors(component));

@@ -39,6 +39,70 @@ var config = {
                     }
                 ]
             }
+        },
+		{
+            type: 'portfolio',
+            content: {
+                title: "Portfolio Humbaba",
+                description: "Contoh 1",
+                projects: [
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 1",
+                        subtitle: "Humbaba 1"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 2",
+                        subtitle: "Humbaba 2"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 3",
+                        subtitle: "Humbaba 3"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 4",
+                        subtitle: "Humbaba 4"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 5",
+                        subtitle: "Humbaba 5"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 6",
+                        subtitle: "Humbaba 6"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 7",
+                        subtitle: "Humbaba 7"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 8",
+                        subtitle: "Humbaba 8"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 9",
+                        subtitle: "Humbaba 9"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 10",
+                        subtitle: "Humbaba 10"
+                    },
+                    {
+                        imageurl: "http://lorempixel.com/200/200/cats",
+                        title: "Portfolio 11",
+                        subtitle: "Humbaba 11"
+                    }
+                ]
+            }
         }
     ]
 };
