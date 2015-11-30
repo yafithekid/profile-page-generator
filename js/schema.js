@@ -6,17 +6,6 @@ var Date = schema({
     year: Number
 });
 
-var Contact = schema({
-    name: String,
-    phone: Phone
-});
-
-var Map = schema({
-    lat: Number,
-    lng: Number,
-    name: String
-});
-
 var Event = schema({
     imageurl: String,
     title: String,
@@ -70,8 +59,8 @@ var About = schema({
 
 var Component = schema({
     '?id': String,
-    type: ['map','contact','experience','title','portfolio', 'about'],
-    content : [Map,Contact,Experience,Title,Portfolio,About]
+    type: ['experience','title','portfolio', 'about'],
+    content : [Experience,Title,Portfolio,About]
 });
 
 var Main = schema({
