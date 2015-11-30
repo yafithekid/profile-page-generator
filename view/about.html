@@ -8,21 +8,22 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="team-member">
-                    <img src="http://lorempixel.com/200/200/cats" class="img-responsive img-circle"/>
+                    <img src="{{about.photo}}" class="img-responsive img-circle"/>
                     <h4>{{about.name}}</h4>
-                    <p>Jalan Ganesha No. 10</p>
-                    <p>081322975540</p>
-                    <p>kucing@gmail.com</p>
-                    <p>saya ganteng</p>
+                    <p>{{about.address}}</p>
+                    <p>{{about.telp_num}}</p>
+                    <p>{{about.email}}</p>
+                    <p>{{about.description}}</p>
                     <ul class="list-inline social-buttons">
-                        <li>
-                            <a target="_blank" href="http://twitter.com/kucing_ganteng">
+                        <li ng-repeat="profile in about.profiles">
+							<a ng-show="profile.profile_type=='twitter'" target="_blank" href="http://twitter.com/{{profile.profile_username}}">
                                 <i class="fa fa-twitter"></i>
                             </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="http://facebook.com/kucing_ganteng">
+							<a ng-show="profile.profile_type=='facebook'" target="_blank" href="http://facebook.com/{{profile.profile_username}}">
                                 <i class="fa fa-facebook"></i>
+                            </a>
+							<a ng-show="profile.profile_type=='linkedin'" target="_blank" href="https://www.linkedin.com/in/{{profile.profile_username}}">
+                                <i class="fa fa-linkedin"></i>
                             </a>
                         </li>
                     </ul>

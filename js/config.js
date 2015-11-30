@@ -129,7 +129,7 @@ var config = {
                             },
                             {
                                 profile_type : "facebook",
-                                profile_username : "kucing_ganteng"
+                                profile_username : "kucing_facebook"
                             }
                 ]
             }
