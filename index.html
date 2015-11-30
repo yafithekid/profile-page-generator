@@ -39,6 +39,8 @@
     <script src="js/main.js"></script>
 </head>
 <body ng-init="render()">
+
+<div ng-show="valid">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -79,10 +81,18 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+
 <intro></intro>
 <experience></experience>
 <portfolio></portfolio>
 <about></about>
+</div>
+<div ng-repeat="error in errors">
+    <h5>Pesan Kesalahan</h5>
+    <pre>{{error.messages | json : 2 }}</pre>
+    <b>Data</b>
+    <pre>{{error.content | json : 2}}</pre>
+</div>
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/agency/js/bootstrap.min.js"></script>
 
