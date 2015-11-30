@@ -383,7 +383,11 @@ var htmlAbout = function(about) {
 
 app.controller('controller',['$scope','$sce',function($scope,$sce){
     $scope.HTML = "";
+    $scope.errors = [];
+    $scope.valid = true;
+
     $scope.render = function(){
+        $scope.valid = true;
         var html = "";
         if (!Main.errors(config)){
             var components = config.components;
@@ -391,20 +395,68 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                 var component = components[i];
                 if (!Component.errors(component)){
                     if (component.type == 'experience'){
-                        html += htmlExperience(component.content);
+                        if (Experience.errors(component.content)){
+                            $scope.valid = false;
+                            $scope.errors.push({
+                                content : component.content,
+                                messages: Experience.errors(component.content)
+                            });
+                        } else {
+                            html += htmlExperience(component.content);
+                        }
                     } else if(component.type == 'title'){
-                        html +=htmlTitle(component);
+                        if (Title.errors(component.content)){
+                            $scope.valid = false;
+                            $scope.errors.push({
+                                content : component.content,
+                                messages: Title.errors(component.content)
+                            });
+                        } else {
+                            html +=htmlTitle(component);
+                        }
                     } else if (component.type == 'portfolio'){
-                        html += htmlPortfolio(component.content);
+                        if (Portfolio.errors(component.content)){
+                            $scope.valid = false;
+                            $scope.errors.push({
+                                content : component.content,
+                                messages: Portfolio.errors(component.content)
+                            });
+                        } else {
+                            html += htmlPortfolio(component.content);
+                        }
+
                     } else if (component.type == 'about'){
-                        html += htmlAbout(component.content);
+                        if (About.errors(component.content)){
+                            $scope.valid = false;
+                            $scope.errors.push({
+                                content : component.content,
+                                messages: About.errors(component.content)
+                            });
+                        } else {
+                            html += htmlAbout(component.content);
+                        }
                     }
                 } else {
+                    $scope.valid = false;
+                    $scope.errors.push({
+                        content: config,
+                        messages: Component.errors(component)
+                    });
                     console.log(Component.errors(component));
                 }
             }
-            $scope.HTML = $sce.trustAsHtml(html);
+            if ($scope.valid){
+                $scope.HTML = $sce.trustAsHtml(html);
+            } else {
+                console.log($scope.errors);
+                $scope.HTML = $sce.trustAsHtml("");
+            }
         } else {
+            $scope.valid = false;
+            $scope.errors.push({
+                content: config,
+                messages: Main.errors(config)
+            });
             console.log(Main.errors(config));
         }
     }

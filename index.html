@@ -39,6 +39,7 @@
     <script src="js/main.js"></script>
 </head>
 <body ng-init="render()">
+<div ng-show="valid">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -98,5 +99,15 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="assets/agency/js/agency.js"></script>
+</div>
+<div ng-hide="valid">
+    <div ng-repeat="error in errors">
+
+        <h5>Pesan Kesalahan</h5>
+        <pre>{{error.messages | json : 2 }}</pre>
+        <b>Data</b>
+        <pre>{{error.content | json : 2}}</pre>
+    </div>
+</div>
 </body>
 </html>

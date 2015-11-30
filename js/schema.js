@@ -60,11 +60,11 @@ var About = schema({
 var Component = schema({
     '?id': String,
     type: ['experience','title','portfolio', 'about'],
-    content : [Experience,Title,Portfolio,About]
+    content : Object
 });
 
 var Main = schema({
-    components: Array.of(Component)
+    components: Array
 });
 
 var dateToOutputString = function(date){
