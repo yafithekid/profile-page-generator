@@ -112,6 +112,27 @@ var config = {
                     },
                 ]
             }
+        },
+        {
+            type: 'about',
+            content: {
+                photo : "http://lorempixel.com/200/200/cats",
+                name : "Muhammad Reza Irvanda",
+                address : "Jalan Ganesha No. 10",
+                telp_num : "081322975540",
+                email : "kucing@gmail.com",
+                description : "saya ganteng",
+                profiles : [
+                            {
+                                profile_type : "twitter",
+                                profile_username : "kucing_ganteng"
+                            },
+                            {
+                                profile_type : "facebook",
+                                profile_username : "kucing_ganteng"
+                            }
+                ]
+            }
         }
     ]
 };

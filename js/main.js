@@ -287,6 +287,108 @@ var htmlPortfolio = function(portfolios){
     return $(temp).html();
 };
 
+var htmlAbout = function(about) {
+    var section = document.createElement("section");
+    $(section).attr("id","team");
+
+    var container = document.createElement("div");
+    $(section).append(container);
+    $(container).addClass("container");
+
+    /* title_row */
+    var title_row = document.createElement("div");
+    $(container).append(title_row);
+    $(title_row).addClass("row");
+
+    var title_row_1 = document.createElement("div");
+    $(title_row).append(title_row_1);
+    $(title_row_1).addClass("col-lg-12"); 
+    $(title_row_1).addClass("text-center");
+
+    var title_row_1_h1 = document.createElement("h2");
+    $(title_row_1).append(title_row_1_h1);
+    $(title_row_1_h1).addClass("section-heading");
+    $(title_row_1_h1).text("About Me");
+    /* end title_row */
+
+    /* profile_row */
+    var profile_row = document.createElement("div");
+    $(container).append(profile_row);
+    $(profile_row).addClass("row");
+
+    var profile_row_col = document.createElement("div");
+    $(profile_row).append(profile_row_col);
+    $(profile_row_col).addClass("col-sm-12");
+
+    var profile_row_col_el = document.createElement("div");
+    $(profile_row_col).append(profile_row_col_el);
+    $(profile_row_col_el).addClass("team-member");
+
+    var profile_img = document.createElement("img");
+    $(profile_row_col_el).append(profile_img);
+    $(profile_img).addClass("img-responsive");
+    $(profile_img).addClass("img-circle");
+    $(profile_img).attr("src", about.photo);
+
+    var profile_name = document.createElement("h4");
+    $(profile_row_col_el).append(profile_name);
+    $(profile_name).text(about.name);
+
+    var profile_address = document.createElement("p");
+    $(profile_row_col_el).append(profile_address);
+    $(profile_address).text(about.address);
+
+    var profile_telp = document.createElement("p");
+    $(profile_row_col_el).append(profile_telp);
+    $(profile_telp).text(about.telp_num);
+
+    var profile_email = document.createElement("p");
+    $(profile_row_col_el).append(profile_email);
+    $(profile_email).text(about.email);
+
+    var profile_desc = document.createElement("p");
+    $(profile_row_col_el).append(profile_desc);
+    $(profile_desc).text(about.description);
+
+
+    var list_profile = document.createElement("ul");
+    $(profile_row_col_el).append(list_profile);
+    $(list_profile).addClass("list-inline");
+    $(list_profile).addClass("social-buttons");
+
+    for(var i=0; i<about.profiles.length; i++) {
+        var el_list = document.createElement("li");
+        $(list_profile).append(el_list);
+
+        var link = document.createElement("a");
+        $(el_list).append(link);
+
+        var icon = document.createElement("i");
+
+        if(about.profiles[i].profile_type == "twitter") {
+            $(link).attr("href", "http://twitter.com/"+about.profiles[i].profile_username);            
+            $(link).append(icon);
+            $(icon).addClass("fa fa-twitter");
+        } else if (about.profiles[i].profile_type == "facebook") {
+            $(link).attr("href", "http://facebook.com/"+about.profiles[i].profile_username);
+            $(link).append(icon);
+            $(icon).addClass("fa fa-facebook");
+        } else if (about.profiles[i].profile_type == "linkedin") {
+            $(link).attr("href", "https://www.linkedin.com/in/"+about.profiles[i].profile_username);
+            $(link).append(icon);
+            $(icon).addClass("fa fa-linkedin");
+        }
+        
+        $(link).attr("target", "_blank");
+    }
+
+    /* end profile_row */
+
+    var temp = document.createElement("div");
+    $(temp).append(section);
+    return $(temp).html();
+}
+
 app.controller('controller',['$scope','$sce',function($scope,$sce){
     $scope.HTML = "";
     $scope.render = function(){
@@ -306,6 +408,8 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                         html +=htmlTitle(component);
                     } else if (component.type == 'portfolio'){
                         html += htmlPortfolio(component.content);
+                    } else if (component.type == 'about'){
+                        html += htmlAbout(component.content);
                     }
                 } else {
                     console.log(Component.errors(component));

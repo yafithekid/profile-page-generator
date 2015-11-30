@@ -43,8 +43,8 @@ var Project = schema({
     category: String,
     subtitle: String,
     description: String,
-    thumbnail_url: String,
-    image_url: String
+    thumbnail_url: Link,
+    image_url: Link
 });
 
 var Portfolio = schema({
@@ -53,10 +53,25 @@ var Portfolio = schema({
     projects: Array.of(Project)
 });
 
+var Profile = schema({
+    profile_type : ['twitter', 'facebook', 'linkedin'],
+    profile_username : String
+});
+
+var About = schema({
+    photo : Link,
+    name : String,
+    address : String,
+    telp_num : Phone,
+    email : String,
+    description : String,
+    profiles : Array.of(Profile)
+});
+
 var Component = schema({
     '?id': String,
-    type: ['map','contact','experience','title','portfolio'],
-    content : [Map,Contact,Experience,Title,Portfolio]
+    type: ['map','contact','experience','title','portfolio', 'about'],
+    content : [Map,Contact,Experience,Title,Portfolio,About]
 });
 
 var Main = schema({
