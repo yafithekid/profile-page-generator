@@ -99,7 +99,6 @@ var htmlExperience = function(experience){
         $(tpanel).addClass("timeline-heading");
         var theading_header = document.createElement("h5");
         $(theading).append(theading_header);
-        console.log(event);
         if (event.end === undefined){
             $(theading_header).text(dateToOutputString(event.start));
         } else {
@@ -385,6 +384,10 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
     $scope.HTML = "";
     $scope.errors = [];
     $scope.valid = true;
+    $scope.experience = null;
+    $scope.about = null;
+    $scope.portfolio = null;
+    $scope.title = null;
 
     $scope.render = function(){
         $scope.valid = true;
@@ -402,7 +405,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                                 messages: Experience.errors(component.content)
                             });
                         } else {
-                            html += htmlExperience(component.content);
+                            $scope.experience = component.content;
                         }
                     } else if(component.type == 'title'){
                         if (Title.errors(component.content)){
@@ -412,7 +415,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                                 messages: Title.errors(component.content)
                             });
                         } else {
-                            html +=htmlTitle(component);
+                            $scope.intro = component.content;
                         }
                     } else if (component.type == 'portfolio'){
                         if (Portfolio.errors(component.content)){
@@ -422,7 +425,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                                 messages: Portfolio.errors(component.content)
                             });
                         } else {
-                            html += htmlPortfolio(component.content);
+                            $scope.portfolio = component.content;
                         }
 
                     } else if (component.type == 'about'){
@@ -433,7 +436,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                                 messages: About.errors(component.content)
                             });
                         } else {
-                            html += htmlAbout(component.content);
+                            $scope.about = component.content;
                         }
                     }
                 } else {
@@ -446,6 +449,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
                 }
             }
             if ($scope.valid){
+                console.log(html);
                 $scope.HTML = $sce.trustAsHtml(html);
             } else {
                 console.log($scope.errors);
@@ -461,4 +465,20 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
         }
     }
 
-}]);
+}]).directive('experience',function(){
+    return {
+        templateUrl: "view/experience.html"
+    };
+}).directive('intro',function(){
+    return {
+        templateUrl: "view/intro.html"
+    }
+}).directive("about",function(){
+    return {
+        templateUrl: "view/about.html"
+    }
+}).directive("portfolio",function(){
+    return {
+        templateUrl: "view/portfolio.html"
+    }
+});

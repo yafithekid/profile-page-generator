@@ -1,0 +1,30 @@
+<section id="experience">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{experience.title}}</h2>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-12">
+            <ul class="timeline">
+                <li ng-repeat="event in experience.events">
+                    <div class="timeline-image">
+                        <img src="{{event.imageurl}}" class="img-circle img-responsive"/>
+                    </div>
+                    <div class="timeline-panel timeline-heading">
+                        <div>
+                            <h5>1 Desember 2014 - 1 Desember 2015</h5><br/>
+                            <h4 class="subheading">{{event.title}}</h4>
+                            <h5><i>{{event.subtitle}}</i></h5>
+                        </div>
+                        <div class="timeline-body">
+                            <p>{{event.description}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</section>
