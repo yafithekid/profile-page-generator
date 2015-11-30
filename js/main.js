@@ -1,13 +1,5 @@
 var app = angular.module('rplsd',[]);
 
-var htmlContact = function(contact){
-    return "<div>"+contact.content.name+"</div><div>"+contact.content.phone+"</div>";
-};
-
-var htmlMap = function(map){
-    return "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9927077190873!2d"+map.content.lng+"!3d"+map.content.lat+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65767c9b183%3A0x2478e3dcdce37961!2s"+map.content.name+"!5e0!3m2!1sen!2s!4v1448295046102' width='600' height='500' frameborder='0' style='border:0' allowfullscreen></iframe>";
-};
-
 var htmlTitle = function(title){
     // var header = document.createElement("header");
     // console.log("Header : ",$(header).html());
@@ -43,7 +35,7 @@ var htmlTitle = function(title){
 
     //background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('landingpagepic.jpg')
     return "<header style='background-position:center top;background : linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(\""+title.content.background_image+"\");'>"+$(container).html()+"</header>";
-}
+};
 
 var htmlExperience = function(experience){
     var section = document.createElement("section");
@@ -398,11 +390,7 @@ app.controller('controller',['$scope','$sce',function($scope,$sce){
             for(var i = 0; i < components.length; i++){
                 var component = components[i];
                 if (!Component.errors(component)){
-                    if (component.type == 'map'){
-                        html += htmlMap(component);
-                    } else if (component.type == 'contact'){
-                        html += htmlContact(component);
-                    } else if (component.type == 'experience'){
+                    if (component.type == 'experience'){
                         html += htmlExperience(component.content);
                     } else if(component.type == 'title'){
                         html +=htmlTitle(component);
