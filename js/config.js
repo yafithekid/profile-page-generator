@@ -47,60 +47,69 @@ var config = {
                 description: "Contoh 1",
                 projects: [
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 1",
-                        subtitle: "Humbaba 1"
+                        title: "Project 1",
+                        category: "Design",
+                        subtitle: "Index shard allocation",
+                        description: "This module provides per-index settings to control the allocation of shards to nodes.",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 2",
-                        subtitle: "Humbaba 2"
+                        title: "Project 2",
+                        category: "Repository system",
+                        subtitle: "Introducing a new repository design",
+                        description: " Hey there! We're rolling out a faster, more streamlined repository experience and would love to give you early access.",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 3",
-                        subtitle: "Humbaba 3"
+                        title: "Project 3",
+                        category: "Web Design",
+                        subtitle: "It used to be a readme",
+                        description: " Help people interested in this repository understand your project by adding a README. ",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 4",
-                        subtitle: "Humbaba 4"
+                        title: "Project 4",
+                        category: "Framework",
+                        subtitle: "Quick fox",
+                        description: "You've been idle for 3 minutes. Scroll, click or press any key to dismiss.",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 5",
-                        subtitle: "Humbaba 5"
+                        title: "Project 5",
+                        category: "Character Design",
+                        subtitle: "Manlyness is manly",
+                        description: "13+2-21*4/2.12 3x+7y*log(3x^k)/(e^n)=123w*x+56x^x+e^n+log(12^2x)+13!/e!+1/234.12^y",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 6",
-                        subtitle: "Humbaba 6"
+                        title: "Project 6",
+                        category: "Game",
+                        subtitle: "Best Game Ever",
+                        description: "This text is here just for placeholder until the game description is added",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 7",
-                        subtitle: "Humbaba 7"
+                        title: "Project 7",
+                        category: "Program",
+                        subtitle: "I don't know",
+                        description: "Why are you even looking at this here? It's not like there's any content here",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 8",
-                        subtitle: "Humbaba 8"
+                        title: "Project 8",
+                        category: "Web",
+                        subtitle: "Isitchristmasyet.com",
+                        description: "Best website ever, nothing even compare",
+                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        image_url: "http://lorempixel.com/200/202/cats"
                     },
-                    {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 9",
-                        subtitle: "Humbaba 9"
-                    },
-                    {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 10",
-                        subtitle: "Humbaba 10"
-                    },
-                    {
-                        imageurl: "http://lorempixel.com/200/200/cats",
-                        title: "Portfolio 11",
-                        subtitle: "Humbaba 11"
-                    }
                 ]
             }
         }

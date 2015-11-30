@@ -146,14 +146,14 @@ var htmlPortfolio = function(portfolios){
     $(section).attr("id","portfolio");
     $(section).addClass("bg-light-gray");
 
+    var modal_container = document.createElement("div");
+
     var container = document.createElement("div");
     $(section).append(container);
     $(container).addClass("container");
 
     var title_row = document.createElement("div");
     $(container).append(title_row);
-    //$(title_row).addClass("row");
-	
 	$(title_row)
 		.addClass("row")
 		.append(
@@ -168,21 +168,7 @@ var htmlPortfolio = function(portfolios){
 						.addClass("section-subheading").addClass("text-muted")
 						.text(portfolios.description)
 				)
-		);//*/
-
-	/*var title_content = document.createElement("div");
-    $(title_row).append(title_content);
-    $(title_content).addClass("col-lg-12").addClass("text-center");
-
-    var title_content_h2 = document.createElement("h2");
-    $(title_content_h2).addClass("section-heading");
-    $(title_content).append(title_content_h2);
-    $(title_content_h2).text(portfolios.title);
-
-    var title_content_h3 = document.createElement("h3");
-    $(title_content_h3).addClass("section-subheading").addClass("text-muted");
-    $(title_content).append(title_content_h3);
-    $(title_content_h3).text(portfolios.description);//*/
+		);
 
     var body_row = document.createElement("div");
     $(container).append(body_row);
@@ -192,15 +178,13 @@ var htmlPortfolio = function(portfolios){
 
 		var pf_body = document.createElement("div");
 		$(body_row).append(pf_body);
-		//$(pf_body).addClass("col-md-4").addClass("col-sm-6").addClass("portfolio-item");
-
 		$(pf_body)
 			.addClass("col-md-4").addClass("col-sm-6").addClass("portfolio-item")
 			.append(
 				$(document.createElement("a"))
 					.addClass("portfolio-link")
 					.attr("href","#portfolioModal"+(i+1))
-					.attr("data-toggle","portfolio")
+					.attr("data-toggle","modal")
 					.append(
 						$(document.createElement("div"))
 							.addClass("portfolio-hover")
@@ -214,8 +198,8 @@ var htmlPortfolio = function(portfolios){
 							)
 					).append(
 						$(document.createElement("img"))
-							.addClass("img-responsive")
-							.attr("src",project.imageurl)
+							.addClass("img-responsive").addClass("center-block")
+							.attr("src",project.thumbnail_url)
 							.attr("style","text-align:center")
 					)
 			).append(
@@ -227,48 +211,80 @@ var htmlPortfolio = function(portfolios){
 					).append(
 						$(document.createElement("p"))
 							.addClass("text-muted")
-							.text(project.subtitle)
+							.text(project.category)
 					)
-			);//*/
-
-		var pf_a = document.createElement("a");
-		$(pf_body).append(pf_a);
-		$(pf_a).addClass("portfolio-link");
-		$(pf_a).attr("href","#portfolioModal"+(i+1));
-		$(pf_a).attr("data-toggle","portfolio");
-
-		var pf_hover = document.createElement("div");
-		$(pf_a).append(pf_hover);
-		$(pf_hover).addClass("portfolio-hover");
-		var pf_hover_c = document.createElement("div");
-		$(pf_hover).append(pf_hover_c);
-		$(pf_hover_c).addClass("portfolio-hover-content");
-		var pf_hover_i = document.createElement("i");
-		$(pf_hover_c).append(pf_hover_i);
-		$(pf_hover_i).addClass("fa").addClass("fa-plus").addClass("fa-3x");
-
-		var pf_img = document.createElement("img");
-		$(pf_a).append(pf_img);
-		$(pf_img).addClass("img-responsive");
-		$(pf_img).attr("src",project.imageurl);
-
-		var pf_descript = document.createElement("div");
-		$(pf_a).append(pf_descript);
-		$(pf_descript).addClass("portfolio-caption");
-
-		var pf_descript_title = document.createElement("h4");
-		$(pf_descript).append(pf_descript_title);
-		$(pf_descript_title).text(project.title);
-
-		var pf_descript_subtitle = document.createElement("p");
-		$(pf_descript).append(pf_descript_subtitle);
-		$(pf_descript).addClass("text-muted");
-		$(pf_descript_title).text(project.subtitle);//*/
+			);
+		
+		var pf_modal = document.createElement("div");
+		$(modal_container).append(pf_modal);
+		$(pf_modal)
+			.addClass("portfolio-modal").addClass("modal").addClass("fade")
+			.attr("id","portfolioModal"+(i+1))
+			.attr("tabindex","-1")
+			.attr("role","dialog")
+			.attr("aria-hidden","true")
+			.append(
+				$(document.createElement("div"))
+					.addClass("modal-content")
+					.append(
+						$(document.createElement("div"))
+							.addClass("close-modal")
+							.attr("data-dismiss","modal")
+							.append(
+								$(document.createElement("div"))
+									.addClass("lr")
+									.append(
+										$(document.createElement("div"))
+											.addClass("rl")
+									)
+							)
+					).append(
+						$(document.createElement("div"))
+							.addClass("container")
+							.append(
+								$(document.createElement("div"))
+									.addClass("row")
+									.append(
+										$(document.createElement("div"))
+											.addClass("col-lg-8").addClass("col-lg-offset-2")
+											.append(
+												$(document.createElement("div"))
+													.addClass("modal-body")
+													.append(
+														$(document.createElement("h2"))
+															.text(project.title)
+													).append(
+														$(document.createElement("p"))
+															.addClass("item-intro").addClass("text-muted")
+															.text(project.subtitle)
+													).append(
+														$(document.createElement("img"))
+															.addClass("img-responsive").addClass("img-centered")
+															.attr("src",project.image_url)
+													).append(
+														$(document.createElement("p"))
+															.text(project.description)
+													).append(
+														$(document.createElement("button"))
+															.addClass("btn").addClass("btn-primary")
+															.attr("type","button")
+															.attr("data-dismiss","modal")
+															.append(
+																$(document.createElement("i"))
+																	.addClass("fa").addClass("fa-times")
+															)
+															.text(" Close Project")
+													)
+											)
+									)
+							)
+					)
+			);
     }
     var temp = document.createElement("div");
     $(temp).append(section);
+    $(temp).append(modal_container);
     return $(temp).html();
-
 };
 
 app.controller('controller',['$scope','$sce',function($scope,$sce){

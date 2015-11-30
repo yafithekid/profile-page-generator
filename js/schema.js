@@ -39,9 +39,12 @@ var Title = schema({
 });
 
 var Project = schema({
-    imageurl: String,
     title: String,
-    subtitle: String
+    category: String,
+    subtitle: String,
+    description: String,
+    thumbnail_url: String,
+    image_url: String
 });
 
 var Portfolio = schema({
