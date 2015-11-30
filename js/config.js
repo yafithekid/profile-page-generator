@@ -51,7 +51,7 @@ var config = {
                         category: "Design",
                         subtitle: "Index shard allocation",
                         description: "This module provides per-index settings to control the allocation of shards to nodes.",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
+                        thumbnail_url: "http://lorempixel.com/200/201/cats",
                         image_url: "http://lorempixel.com/200/202/cats"
                     },
                     {
@@ -59,56 +59,56 @@ var config = {
                         category: "Repository system",
                         subtitle: "Introducing a new repository design",
                         description: " Hey there! We're rolling out a faster, more streamlined repository experience and would love to give you early access.",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/203/cats",
+                        image_url: "http://lorempixel.com/200/204/cats"
                     },
                     {
                         title: "Project 3",
                         category: "Web Design",
                         subtitle: "It used to be a readme",
                         description: " Help people interested in this repository understand your project by adding a README. ",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/205/cats",
+                        image_url: "http://lorempixel.com/200/206/cats"
                     },
                     {
                         title: "Project 4",
                         category: "Framework",
                         subtitle: "Quick fox",
                         description: "You've been idle for 3 minutes. Scroll, click or press any key to dismiss.",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/207/cats",
+                        image_url: "http://lorempixel.com/200/208/cats"
                     },
                     {
                         title: "Project 5",
                         category: "Character Design",
                         subtitle: "Manlyness is manly",
                         description: "13+2-21*4/2.12 3x+7y*log(3x^k)/(e^n)=123w*x+56x^x+e^n+log(12^2x)+13!/e!+1/234.12^y",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/209/cats",
+                        image_url: "http://lorempixel.com/200/210/cats"
                     },
                     {
                         title: "Project 6",
                         category: "Game",
                         subtitle: "Best Game Ever",
                         description: "This text is here just for placeholder until the game description is added",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/211/cats",
+                        image_url: "http://lorempixel.com/200/212/cats"
                     },
                     {
                         title: "Project 7",
                         category: "Program",
                         subtitle: "I don't know",
                         description: "Why are you even looking at this here? It's not like there's any content here",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/213/cats",
+                        image_url: "http://lorempixel.com/200/214/cats"
                     },
                     {
                         title: "Project 8",
                         category: "Web",
                         subtitle: "Isitchristmasyet.com",
                         description: "Best website ever, nothing even compare",
-                        thumbnail_url: "http://lorempixel.com/200/200/cats",
-                        image_url: "http://lorempixel.com/200/202/cats"
+                        thumbnail_url: "http://lorempixel.com/200/215/cats",
+                        image_url: "http://lorempixel.com/200/216/cats"
                     },
                 ]
             }

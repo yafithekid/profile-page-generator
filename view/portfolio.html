@@ -24,3 +24,27 @@
 		</div>
 	</div>
 </section>
+<div>
+	<div ng-repeat="project in portfolio.projects" aria-hidden="true" role="dialog" tabindex="-1" id="portfolioModal{{$index+1}}" class="portfolio-modal modal fade">
+		<div class="modal-content">
+			<div data-dismiss="modal" class="close-modal">
+				<div class="lr">
+					<div class="rl"></div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="modal-body">
+							<h2>{{project.title}}</h2>
+							<p class="item-intro text-muted">{{project.subtitle}}</p>
+							<img src="{{project.image_url}}" class="img-responsive img-centered"/>
+							<p>{{project.description}}</p>
+							<button data-dismiss="modal" type="button" class="btn btn-primary"> Close Project</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
